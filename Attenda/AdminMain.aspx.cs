@@ -11,7 +11,24 @@ namespace Attenda
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                // Code to load the student's course schedule goes here
+            }
+        }
 
+        protected void NoName(object sender, EventArgs e)
+        {
+            // Code to display the student's course schedule goes here
+        }
+
+        protected void NoName1(object sender, EventArgs e)
+        {
+            // Code to allow the student to give attendance goes here
+        }
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            // Code to run when the logout button is clicked
         }
     }
 }

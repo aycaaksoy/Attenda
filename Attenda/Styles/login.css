@@ -1,5 +1,4 @@
-﻿/* Style for the login form */
-.login-form {
+﻿.login-form {
     background-color: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(15, 15, 16, 0.1);
     border-radius: 10px;
@@ -27,7 +26,6 @@ body {
 }
 
 
-/* Style for the form input fields */
 .login-form input[type="text"],
 .login-form input[type="password"] {
     border: 1px solid rgba(15, 15, 16, 0.1);
@@ -38,7 +36,6 @@ body {
     width: 100%;
 }
 
-/* Style for the login button */
 .login-form input[type="submit"] {
     background-color: #6991c7;
     border: none;
@@ -60,7 +57,6 @@ body {
     }
 
 
-/* Style for the error message */
 .login-form .error-message {
     color: #FF0000;
     font-size: 14px;
@@ -68,7 +64,6 @@ body {
     text-align: center;
 }
 
-/* Reset default styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -91,7 +86,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Style for the page header */
 .header {
     background-color: rgba(255, 255, 255, 0.9);
     color: var(--dark-font);
@@ -104,7 +98,6 @@ body {
     width: 100%;
 }
 
-    /* Style for the logout link */
     .header .logout-link {
         font-size: 16px;
         color: var(--light-font);
