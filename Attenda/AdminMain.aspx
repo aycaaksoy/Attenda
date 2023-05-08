@@ -26,11 +26,11 @@
 
     <div class="left-area show">
         <h3 class="app-name">Sidebar</h3>
-        <a href="#" class="item-link active">Item 1</a>
-        <a href="#" class="item-link">Item 2</a>
-        <a href="#" class="item-link">Item 3</a>
-        <a href="#" class="item-link">Item 4</a>
-        <a href="#" class="item-link">Item 5</a>
+        <a href="#" class="item-link">Create Course</a>
+        <a href="#" class="item-link">Delete Course</a>
+        <a href="#" class="item-link">Assign Student</a>
+        <a href="#" class="item-link">Unassign Student</a>
+        <a href="#" class="item-link">Create Account</a>
     </div>
 
 </body>

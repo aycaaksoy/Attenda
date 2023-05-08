@@ -15,15 +15,15 @@
 
             <div>
                 <label for="username">Username:</label>
-                <asp:TextBox ID="username" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtusername" runat="server"></asp:TextBox>
             </div>
             <br />
             <div>
                 <label for="password">Password:</label>
-                <asp:TextBox ID="password" TextMode="Password" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtpassword" TextMode="Password" runat="server"></asp:TextBox>
             </div>
             <asp:Button ID="loginButton" Text="Login" OnClick="LoginButton_Click" runat="server" />
-            <asp:Label ID="errorLabel" runat="server" CssClass="error-message" Visible="false"></asp:Label>
+            <asp:Label ID="txterrorLabel" runat="server" CssClass="error-message" Visible="true"></asp:Label>
         </div>
     </form>
 </body>

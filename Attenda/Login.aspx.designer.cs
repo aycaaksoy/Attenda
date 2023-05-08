@@ -24,22 +24,22 @@ namespace Attenda
         protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
 
         /// <summary>
-        /// username control.
+        /// txtusername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox username;
+        protected global::System.Web.UI.WebControls.TextBox txtusername;
 
         /// <summary>
-        /// password control.
+        /// txtpassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.WebControls.TextBox txtpassword;
 
         /// <summary>
         /// loginButton control.
@@ -51,12 +51,12 @@ namespace Attenda
         protected global::System.Web.UI.WebControls.Button loginButton;
 
         /// <summary>
-        /// errorLabel control.
+        /// txterrorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label errorLabel;
+        protected global::System.Web.UI.WebControls.Label txterrorLabel;
     }
 }
