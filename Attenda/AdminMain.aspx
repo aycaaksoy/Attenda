@@ -24,6 +24,8 @@
         <div class="content">
 
             <div class="flex-container" id="create_account">
+                <h1>Create Account</h1>
+                <br />
                 <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
                 <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                 <br />
@@ -52,6 +54,7 @@
 
             <div class="flex-container" id="create_course">
                 <h2>Create Course</h2>
+                 <br />
                 <asp:Label ID="lblCourseName" runat="server" Text="Course Name"></asp:Label>
                 <asp:TextBox ID="txtCourseName" runat="server"></asp:TextBox>
                 <br />
@@ -67,6 +70,7 @@
 
             <div class="flex-container" id="delete-course">
                 <h2>Delete Course</h2>
+                 <br />
                 <asp:Label ID="lblCourseNameToDelete" runat="server" Text="Course Name"></asp:Label>
                 <asp:TextBox ID="txtCourseNameToDelete" runat="server"></asp:TextBox>
                 <br />
@@ -74,6 +78,18 @@
                 <asp:Label ID="lblDeleteMessage" runat="server" Text=""></asp:Label>
             </div>
 
+            <div class="flex-container" id="assign-student">
+            <h1>Assign Student to Course</h1>
+            <br />
+            <asp:Label ID="lblCourse" runat="server" Text="Course:"></asp:Label>
+            <asp:DropDownList ID="ddlCourses" runat="server"></asp:DropDownList>
+            <br />
+            <asp:Label ID="lblStudent" runat="server" Text="Student:"></asp:Label>
+            <asp:DropDownList ID="ddlStudents" runat="server"></asp:DropDownList>
+            <br />
+            <asp:Button ID="btnAssign" runat="server" Text="Assign" OnClick="btnAssign_Click" />
+            <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+            </div>
 
         </div>
     </form>

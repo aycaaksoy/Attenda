@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,8 @@ namespace Attenda
         {
             if (Session["user_type"] == null || Session["user_type"].ToString() != "admin")
             {
+                BindCourses();
+                BindStudents();
                 Response.Redirect("Login.aspx");
             }
             else
@@ -24,6 +27,7 @@ namespace Attenda
                 int adminId = Convert.ToInt32(Session["user_id"]);
                 
             }
+
         }
 
         protected void NoName(object sender, EventArgs e)
@@ -169,6 +173,88 @@ namespace Attenda
                 int rowsAffected = command.ExecuteNonQuery();
                 connection.Close();
                 return rowsAffected > 0;
+            }
+        }
+
+        protected void btnAssign_Click(object sender, EventArgs e)
+        {
+            // Get the selected course and student IDs
+            string courseId = ddlCourses.SelectedValue;
+            string studentId = ddlStudents.SelectedValue;
+
+            // Assign the student to the course
+            bool success = AssignStudentToCourse(courseId, studentId);
+
+            if (success)
+            {
+                lblMessage.Text = "Student assigned to course successfully.";
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+            }
+            else
+            {
+                lblMessage.Text = "Failed to assign student to course.";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+
+        private void BindCourses()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT course_id, course_name FROM Course";
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                ddlCourses.DataSource = dataTable;
+                ddlCourses.DataTextField = "course_name";
+                ddlCourses.DataValueField = "course_id";
+                ddlCourses.DataBind();
+                connection.Close();
+            }
+        }
+
+        private void BindStudents()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                
+                string query = "SELECT student_id, student_name FROM Student";
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                DataTable dataTable = new DataTable();
+                adapter.Fill(dataTable);
+
+                ddlStudents.DataSource = dataTable;
+                ddlStudents.DataTextField = "student_name";
+                ddlStudents.DataValueField = "student_id";
+                ddlStudents.DataBind();
+                connection.Close();
+            }
+        }
+        private bool AssignStudentToCourse(string courseId, string studentId)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    // QUERY'I BURAYI DUZELT
+                    string query = "INSERT INTO CourseStudent (course_id, student_id) VALUES (@CourseId, @StudentId)";
+                    SqlCommand command = new SqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@CourseId", courseId);
+                    command.Parameters.AddWithValue("@StudentId", studentId);
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
         }
     }
