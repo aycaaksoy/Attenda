@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace Attenda
 {
@@ -11,9 +12,13 @@ namespace Attenda
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["user_type"] == null || Session["user_type"].ToString() != "student")
             {
-                // Code to load the student's course schedule goes here
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                int studentId = Convert.ToInt32(Session["user_id"]);
             }
         }
 
@@ -28,7 +33,8 @@ namespace Attenda
         }
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
-            // Code to run when the logout button is clicked
+            Session.Clear(); // Clear all session variables
+            Response.Redirect("Login.aspx"); // Redirect to the login page
         }
 
         
