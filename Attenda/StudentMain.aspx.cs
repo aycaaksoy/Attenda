@@ -33,8 +33,8 @@ namespace Attenda
         }
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
-            Session.Clear(); // Clear all session variables
-            Response.Redirect("Login.aspx"); // Redirect to the login page
+            Session.Clear(); 
+            Response.Redirect("Login.aspx"); 
         }
 
         

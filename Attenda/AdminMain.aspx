@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
     <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="Styles/adminmain.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 
@@ -19,51 +21,77 @@
                 <asp:LinkButton ID="logoutButton" CssClass="logout-button" runat="server" OnClick="LogoutButton_Click">Logout</asp:LinkButton>
             </div>
         </div>
-        <div class="flex-container">
-            <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
-            <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblAge" runat="server" Text="Age"></asp:Label>
-            <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblDepartment" runat="server" Text="Department"></asp:Label>
-            <asp:TextBox ID="txtDepartment" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
-            <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
-            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblAccountType" runat="server" Text="Account Type"></asp:Label>
-            <asp:DropDownList ID="ddlAccountType" runat="server">
-                <asp:ListItem Text="Student" Value="Student"></asp:ListItem>
-                <asp:ListItem Text="Teacher" Value="Teacher"></asp:ListItem>
-            </asp:DropDownList>
-            <br />
-            <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
-            <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+        <div class="content">
+
+            <div class="flex-container" id="create_account">
+                <asp:Label ID="lblName" runat="server" Text="Name"></asp:Label>
+                <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="lblAge" runat="server" Text="Age"></asp:Label>
+                <asp:TextBox ID="txtAge" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="lblDepartment" runat="server" Text="Department"></asp:Label>
+                <asp:TextBox ID="txtDepartment" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="lblUsername" runat="server" Text="Username"></asp:Label>
+                <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
+                <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
+                <br />
+                <asp:Label ID="lblAccountType" runat="server" Text="Account Type"></asp:Label>
+                <asp:DropDownList ID="ddlAccountType" runat="server">
+                    <asp:ListItem Text="Student" Value="Student"></asp:ListItem>
+                    <asp:ListItem Text="Teacher" Value="Teacher"></asp:ListItem>
+                </asp:DropDownList>
+                <br />
+                <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
+                <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+            </div>
+
+
+            <div class="flex-container" id="create_course">
+                <h2>Create Course</h2>
+                <asp:Label ID="lblCourseName" runat="server" Text="Course Name"></asp:Label>
+                <asp:TextBox ID="txtCourseName" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="lblQuota" runat="server" Text="Quota"></asp:Label>
+                <asp:TextBox ID="txtQuota" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="lblDescription" runat="server" Text="Description"></asp:Label>
+                <asp:TextBox ID="txtDescription" runat="server"></asp:TextBox>
+                <br />
+                <asp:Button ID="btnCreateCourse" runat="server" Text="Create Course" OnClick="btnCreateCourse_Click" />
+                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+            </div>
+
+            <div class="flex-container" id="delete-course">
+                <h2>Delete Course</h2>
+                <asp:Label ID="lblCourseNameToDelete" runat="server" Text="Course Name"></asp:Label>
+                <asp:TextBox ID="txtCourseNameToDelete" runat="server"></asp:TextBox>
+                <br />
+                <asp:Button ID="btnDeleteCourse" runat="server" Text="Delete Course" OnClick="btnDeleteCourse_Click" />
+                <asp:Label ID="lblDeleteMessage" runat="server" Text=""></asp:Label>
+            </div>
+
+
         </div>
     </form>
 
     <div class="left-area show">
         <h3 class="app-name">Sidebar</h3>
-        <a href="#" class="item-link">Create Course</a>
-        <a href="#" class="item-link">Delete Course</a>
-        <a href="#" class="item-link">Assign Student</a>
-        <a href="#" class="item-link">Unassign Student</a>
-        <a href="#" class="item-link">Create Account</a>
+        <a href="#" id="create-course-link" class="item-link">Create Course</a>
+        <a href="#" id="delete-course-link" class="item-link">Delete Course</a>
+        <a href="#" id="assign-student-link" class="item-link">Assign Student</a>
+        <a href="#" id="unassign-student-link" class="item-link">Unassign Student</a>
+        <a href="#" id="create-account-link" class="item-link">Create Account</a>
     </div>
+
+    <script>
+
+</script>
 
 </body>
 </html>
 
 
-<script>
-    const toggleButton = document.getElementById('toggle-button');
-    const sidebar = document.querySelector('.sidebar');
-
-    toggleButton.addEventListener('click', function () {
-        sidebar.classList.toggle('sidebar-closed');
-    });
-</script>
