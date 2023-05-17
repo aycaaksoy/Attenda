@@ -25,7 +25,38 @@
                 <asp:Button ID="giveAttendanceButton"   CssClass="option-button" Text="Give Attendance" OnClick="GiveAttendanceButton_Click" runat="server" />
             </div>
         </div>
+
+        <div class="flex-container">
+            <asp:GridView ID="scheduleGridView" runat="server" CssClass="schedule-grid" AutoGenerateColumns="true"></asp:GridView>
+            
+        </div>
     </form>
 
 </body>
 </html>
+<style>
+    .schedule-grid {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .schedule-grid th,
+    .schedule-grid td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+
+    .schedule-grid th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    .schedule-grid tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .schedule-grid tr:hover {
+        background-color: #e6e6e6;
+    }
+</style>

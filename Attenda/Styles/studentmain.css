@@ -188,3 +188,45 @@ html, body {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(15, 15, 16, 0.2);
 }
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.schedule-grid {
+    width: 100%;
+}
+
+    .schedule-grid th,
+    .schedule-grid td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .schedule-grid th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    .schedule-grid tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .schedule-grid tr:hover {
+        background-color: #e6e6e6;
+    }
+
+    .schedule-grid .empty-cell {
+        background-color: #f2f2f2;
+        font-style: italic;
+        color: #999999;
+    }
+
+    .schedule-grid .course-cell {
+        font-weight: bold;
+    }
+
+        .schedule-grid .course-cell:hover {
+            background-color: #d9edf7;
+        }
