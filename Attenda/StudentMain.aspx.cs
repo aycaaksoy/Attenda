@@ -18,14 +18,17 @@ namespace Attenda
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (Session["user_type"] == null || Session["user_type"].ToString() != "student")
+            if (!IsPostBack)
             {
-                Response.Redirect("Login.aspx");
-            }
-            else
-            {
-                int studentId = Convert.ToInt32(Session["user_id"]);
+
+                if (Session["user_type"] == null || Session["user_type"].ToString() != "student")
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    int studentId = Convert.ToInt32(Session["user_id"]);
+                }
             }
         }
 
@@ -53,7 +56,39 @@ namespace Attenda
 
         protected void GiveAttendanceButton_Click(object sender, EventArgs e)
         {
-            // Code to allow the student to give attendance goes here
+            string code = txtgiveAttendance.Text;
+            int studentId = Convert.ToInt32(Session["user_id"]);
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string query = "INSERT INTO SessionStudents (student_id) SELECT @StudentId FROM CourseStudents cs JOIN Session s ON cs.course_id = s.course_id WHERE s.code = @Code";
+
+                        using (SqlCommand command = new SqlCommand(query, connection))
+                        {
+                            command.Parameters.AddWithValue("@Code", code);
+                            command.Parameters.AddWithValue("@StudentId", studentId);
+                            int rowsEffected = command.ExecuteNonQuery();
+                            if (rowsEffected > 0)
+                            {
+                                txtgiveAttendance.Text = "";
+                                lblAttendance.Text = "Attendance submitted successfully.";
+                                lblAttendance.ForeColor = System.Drawing.Color.Green;
+                            }
+                        else
+                        {
+                            lblAttendance.Text = "Error! There is no session with this code!";
+                            lblAttendance.ForeColor = System.Drawing.Color.Red;
+                        }
+                        }
+                }
+            }
+            catch
+            {
+                lblAttendance.Text = "Error! Contact to your admin";
+                lblAttendance.ForeColor = System.Drawing.Color.Red;
+            }
         }
         protected void LogoutButton_Click(object sender, EventArgs e)
         {

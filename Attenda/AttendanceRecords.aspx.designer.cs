@@ -11,17 +11,17 @@ namespace Attenda
 {
 
 
-    public partial class StudentMain
+    public partial class AttendanceRecords
     {
 
         /// <summary>
-        /// Form1 control.
+        /// FormCreate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm FormCreate;
 
         /// <summary>
         /// logoutButton control.
@@ -33,48 +33,48 @@ namespace Attenda
         protected global::System.Web.UI.WebControls.LinkButton logoutButton;
 
         /// <summary>
-        /// viewScheduleButton control.
+        /// goBack control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button viewScheduleButton;
+        protected global::System.Web.UI.WebControls.LinkButton goBack;
 
         /// <summary>
-        /// txtgiveAttendance control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtgiveAttendance;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// lblAttendance control.
+        /// DropDownList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAttendance;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
 
         /// <summary>
-        /// btngiveAttendance control.
+        /// LinkButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btngiveAttendance;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
 
         /// <summary>
-        /// scheduleGridView control.
+        /// scheduleGridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView scheduleGridView;
+        protected global::System.Web.UI.WebControls.GridView scheduleGridView1;
     }
 }

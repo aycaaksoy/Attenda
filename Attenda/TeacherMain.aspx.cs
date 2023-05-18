@@ -55,9 +55,10 @@ namespace Attenda
             scheduleGridView.DataBind();
         }
 
-        protected void CreateAttendaButton_Click(object sender, EventArgs e)
+        protected void AttendaRecord_Click(object sender, EventArgs e)
         {
-            // Code to allow the student to give attendance goes here
+            Response.Redirect("AttendanceRecords.aspx");
+
         }
 
         protected void btnGenerateCode_Click(object sender, EventArgs e)
@@ -75,7 +76,6 @@ namespace Attenda
                 
                 try
                 {
-                   
 
                     using (SqlCommand command = new SqlCommand( query, connection))
                     {
@@ -132,6 +132,7 @@ namespace Attenda
 
         private void PopulateCourses()
         {
+            ddl2Courses.DataSource = "";
             int teacherid = Convert.ToInt32(Session["user_id"]);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

@@ -112,46 +112,64 @@ namespace Attenda
         }
         protected void btnCreateCourse_Click(object sender, EventArgs e)
         {
-            string courseName = txtCourseName.Text;
-            int quota = Convert.ToInt32(txtQuota.Text);
-            string day = txtday.Text;
-            string hour = txthour.Text; 
-            string description = txtDescription.Text;
-            int teacherId = GetAdminId(); 
+            try
+            {
+                string courseName = txtCourseName.Text;
+                int quota = Convert.ToInt32(txtQuota.Text);
+                string day = txtday.Text;
+                string hour = txthour.Text;
+                string description = txtDescription.Text;
+                int teacherId = GetAdminId();
 
-            
-            if (InsertCourse(courseName, quota, description, teacherId, day, hour))
-            {
-                Label1.Text = "Course created successfully.";
-                Label1.ForeColor = System.Drawing.Color.Green;
-                txtCourseName.Text = "";
-                txtQuota.Text = "";
-                txtDescription.Text = "";
+
+                if (InsertCourse(courseName, quota, description, teacherId, day, hour))
+                {
+                    Label1.Text = "Course created successfully.";
+                    Label1.ForeColor = System.Drawing.Color.Green;
+                    txtCourseName.Text = "";
+                    txtQuota.Text = "";
+                    txtDescription.Text = "";
+                }
+                else
+                {
+                    Label1.Text = "Failed to create the course.";
+                    Label1.ForeColor = System.Drawing.Color.Red;
+                }
             }
-            else
+            catch
             {
-                Label1.Text = "Failed to create the course.";
+                Label1.Text = "You should fill inputs.";
                 Label1.ForeColor = System.Drawing.Color.Red;
             }
+           
         }
         protected void btnDeleteCourse_Click(object sender, EventArgs e)
         {
-            
-            string courseName = txtCourseNameToDelete.Text;
-
-            
-            bool deletionSuccess = DeleteCourse(courseName);
-
-            if (deletionSuccess)
+            try
             {
-                lblDeleteMessage.Text = "Course deleted successfully.";
-                lblDeleteMessage.ForeColor = System.Drawing.Color.Green;
+                string courseName = txtCourseNameToDelete.Text;
+
+
+                bool deletionSuccess = DeleteCourse(courseName);
+
+                if (deletionSuccess)
+                {
+                    lblDeleteMessage.Text = "Course deleted successfully.";
+                    lblDeleteMessage.ForeColor = System.Drawing.Color.Green;
+                }
+                else
+                {
+                    lblDeleteMessage.Text = "Failed to delete the course.";
+                    lblDeleteMessage.ForeColor = System.Drawing.Color.Red;
+                }
             }
-            else
+
+            catch
             {
                 lblDeleteMessage.Text = "Failed to delete the course.";
                 lblDeleteMessage.ForeColor = System.Drawing.Color.Red;
             }
+          
         }
         protected void btnAssign_Click(object sender, EventArgs e)
         {
@@ -239,19 +257,27 @@ namespace Attenda
         }
         private bool DeleteCourse(string courseName)
         {
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                string deleteQuery = "DELETE FROM Course WHERE course_name = @CourseName";
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    string deleteQuery = "DELETE FROM Course WHERE course_name = @CourseName";
 
-                SqlCommand command = new SqlCommand(deleteQuery, connection);
-                command.Parameters.AddWithValue("@CourseName", courseName);
+                    SqlCommand command = new SqlCommand(deleteQuery, connection);
+                    command.Parameters.AddWithValue("@CourseName", courseName);
 
-               
-                int rowsAffected = command.ExecuteNonQuery();
-                connection.Close();
-                return rowsAffected > 0;
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                    return rowsAffected > 0;
+                }
             }
+            catch 
+            {
+                return false;
+            }
+          
         }
         private void PopulateCourses()
         {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherMain.aspx.cs" Inherits="Attenda.TeacherMain" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AttendanceRecords.aspx.cs" Inherits="Attenda.AttendanceRecords" %>
 
 <!DOCTYPE html>
 
@@ -15,37 +15,18 @@
                 <asp:LinkButton ID="logoutButton" CssClass="logout-button" runat="server" OnClick="LogoutButton_Click">Logout</asp:LinkButton>
             </div>
         </div>
+
         <div class="content">
-        <div class="options">
-            <div class="option">
-                <h2>View Courses</h2>
-                <asp:Button ID="viewScheduleButton"  CssClass="option-button" Text="View Schedule" OnClick="ViewCourseButton_Click" runat="server" />
-            </div>
-            <div class="option">
-                <h2>Attendance Records</h2>
-                <asp:Button ID="AttendanceRecordsButton"   CssClass="option-button" Text="See Records" OnClick="AttendaRecord_Click" runat="server" />
-            </div>
-        </div>
+             <asp:LinkButton ID="goBack" CssClass="logout-button" runat="server" OnClick="GoBackButton_Click">GoBack</asp:LinkButton>
          <div class="flex-container">
-            <asp:GridView ID="scheduleGridView" runat="server" CssClass="schedule-grid" AutoGenerateColumns="true"></asp:GridView>
+              <asp:Label ID="Label1" runat="server" Text="Course:"></asp:Label>
+              <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+              <br />
+              <asp:LinkButton ID="LinkButton1" CssClass="logout-button" runat="server" OnClick="GetStudentsAttendance_Click">Enter</asp:LinkButton>
+             <br /> 
+             <asp:GridView ID="scheduleGridView1" runat="server" CssClass="schedule-grid" AutoGenerateColumns="true"></asp:GridView>
         </div>
          
-
-             <div class="flex-container" id="create-code-pls">
-                <h1>Create Session Code</h1>
-                <br />
-                <asp:Label ID="lblCourse" runat="server" Text="Course:"></asp:Label>
-                <asp:DropDownList ID="ddl2Courses" runat="server"></asp:DropDownList>
-                <br />
-                <asp:Label ID="lblDay" runat="server" Text="Day"></asp:Label>
-                <asp:TextBox ID="txtDay" runat="server"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblHour" runat="server" Text="Hour"></asp:Label>
-                <asp:TextBox ID="txtHour" runat="server"></asp:TextBox>
-                 <br />
-                <asp:Button ID="btnGenerateCode" runat="server" Text="Get Code" OnClick="btnGenerateCode_Click" />
-                <asp:Label ID="lblCode" runat="server" Text=""></asp:Label>
-            </div>
          </div>
     </form>
 </body>

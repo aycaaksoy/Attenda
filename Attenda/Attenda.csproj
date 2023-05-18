@@ -116,6 +116,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdminMain.aspx" />
+    <Content Include="AttendanceRecords.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -222,6 +223,13 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="AttendanceRecords.aspx.cs">
+      <DependentUpon>AttendanceRecords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AttendanceRecords.aspx.designer.cs">
+      <DependentUpon>AttendanceRecords.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

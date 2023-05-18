@@ -42,13 +42,13 @@ namespace Attenda
         protected global::System.Web.UI.WebControls.Button viewScheduleButton;
 
         /// <summary>
-        /// giveAttendanceButton control.
+        /// AttendanceRecordsButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button giveAttendanceButton;
+        protected global::System.Web.UI.WebControls.Button AttendanceRecordsButton;
 
         /// <summary>
         /// scheduleGridView control.

@@ -22,14 +22,17 @@
             </div>
             <div class="option">
                 <h2>Give Attendance</h2>
-                <asp:Button ID="giveAttendanceButton"   CssClass="option-button" Text="Give Attendance" OnClick="GiveAttendanceButton_Click" runat="server" />
+                <asp:TextBox ID="txtgiveAttendance" runat="server"></asp:TextBox>
+                <asp:Label ID="lblAttendance" runat="server" Text=""></asp:Label>
+                <asp:Button ID="btngiveAttendance"   CssClass="option-button" Text="Give Attendance" OnClick="GiveAttendanceButton_Click" runat="server" />
             </div>
         </div>
-
+         
         <div class="flex-container">
             <asp:GridView ID="scheduleGridView" runat="server" CssClass="schedule-grid" AutoGenerateColumns="true"></asp:GridView>
             
         </div>
+
     </form>
 
 </body>
@@ -297,5 +300,14 @@ html, body {
         .schedule-grid .course-cell:hover {
             background-color: #d9edf7;
         }
-
+     .option input[type="text"],
+    .option input[type="password"],
+    .option select {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 2px rgba(15, 15, 16, 0.2);
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+    }
 </style>
