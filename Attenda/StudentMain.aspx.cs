@@ -63,9 +63,9 @@ namespace Attenda
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     connection.Open();
-                    string query = "INSERT INTO SessionStudents (student_id) SELECT @StudentId FROM CourseStudents cs JOIN Session s ON cs.course_id = s.course_id WHERE s.code = @Code";
+                    string query = "INSERT INTO SessionStudents (student_id, session_id) SELECT TOP 1 @StudentId, s.session_id FROM CourseStudents cs JOIN Session s ON cs.course_id = s.course_id WHERE s.code = @Code";
 
-                        using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new SqlCommand(query, connection))
                         {
                             command.Parameters.AddWithValue("@Code", code);
                             command.Parameters.AddWithValue("@StudentId", studentId);
